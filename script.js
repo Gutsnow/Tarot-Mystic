@@ -59,3 +59,71 @@ const detalhes = [
     });
   });
 
+// Create sparkles
+function createSparkle() {
+    const sparkle = document.createElement('div');
+    sparkle.className = 'sparkle';
+    
+    // Random position across the full width
+    sparkle.style.left = Math.random() * window.innerWidth + 'px';
+    
+    // Start from random positions above the viewport
+    sparkle.style.top = -10 + 'px';
+    
+    // Random size between 2px and 4px
+    const size = 2 + Math.random() * 2;
+    sparkle.style.width = size + 'px';
+    sparkle.style.height = size + 'px';
+    
+    // Random animation duration between 2 and 4 seconds
+    const duration = 2 + Math.random() * 2;
+    sparkle.style.animation = `sparkle ${duration}s linear`;
+    
+    document.body.appendChild(sparkle);
+    
+    // Remove sparkle after animation
+    setTimeout(() => {
+        sparkle.remove();
+    }, duration * 1000);
+}
+
+// Create multiple sparkles at once
+function createSparkles() {
+    const count = 2 + Math.floor(Math.random() * 2); // Create 2-3 sparkles at once
+    for (let i = 0; i < count; i++) {
+        setTimeout(createSparkle, Math.random() * 100);
+    }
+}
+
+// Create new sparkles periodically
+setInterval(createSparkles, 100);
+
+// Scroll animations
+function handleScrollAnimations() {
+    const elements = document.querySelectorAll('.fade-in');
+    
+    elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementBottom = element.getBoundingClientRect().bottom;
+        
+        // Check if element is in viewport
+        if (elementTop < window.innerHeight - 100 && elementBottom > 0) {
+            element.classList.add('visible');
+        }
+    });
+}
+
+// Add fade-in class to elements
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section, #letreiro-header');
+    sections.forEach(section => {
+        section.classList.add('fade-in');
+    });
+    
+    // Initial check for elements in viewport
+    handleScrollAnimations();
+});
+
+// Listen for scroll events
+window.addEventListener('scroll', handleScrollAnimations);
+
