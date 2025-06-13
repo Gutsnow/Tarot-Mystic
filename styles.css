@@ -17,7 +17,7 @@
     position: fixed;
     width: 4px;
     height: 4px;
-    background: radial-gradient(circle, rgba(255, 223, 186, 1) 0%, rgba(254, 210, 153, 0.8) 50%, transparent 100%);
+    background: radial-gradient(circle, rgba(255, 223, 186, 1) 0%, rgba(254, 210, 153, 0.8) 100%, transparent 100%);
     border-radius: 50%;
     pointer-events: none;
     z-index: 0;
