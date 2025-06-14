@@ -424,7 +424,7 @@ a:hover{
 }
 
 /* Responsividade */
-@media (max-width: 1200px) {
+@media (max-width: 1500px) {
     #about {
         width: 90%;
         flex-direction: column;
