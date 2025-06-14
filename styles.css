@@ -4,27 +4,27 @@
 /* Sparkles Animation */
 @keyframes sparkle {
     0% {
-        transform: translateY(-100vh) rotate(0deg) ;
-        opacity: 1;
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 0.8;
     }
     100% {
         transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
+        opacity: 0.2;
     }
 }
 
 .sparkle {
     position: fixed;
-    width: 4px;
-    height: 4px;
-    background: radial-gradient(circle, rgba(255, 223, 186, 1) 0%, rgba(254, 210, 153, 0.8) 100%, transparent 100%);
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, rgba(255, 223, 186, 1) 0%, rgba(254, 210, 153, 0.9) 100%, transparent 100%);
     border-radius: 50%;
     pointer-events: none;
-    z-index: 0;
+    z-index: -1;
     box-shadow: 
-        0 0 10px rgba(254, 210, 153, 0.8),
-        0 0 20px rgba(254, 210, 153, 0.4),
-        0 0 30px rgba(254, 210, 153, 0.2);
+        0 0 15px rgba(254, 210, 153, 0.9),
+        0 0 25px rgba(254, 210, 153, 0.6),
+        0 0 35px rgba(254, 210, 153, 0.3);
 }
 
 /* Reset */
@@ -64,6 +64,7 @@ body {
     scroll-behavior: smooth;
     overflow-x: hidden;
     min-height: 100vh;
+    padding-top: 5.5rem;
 }
 
 @keyframes gradientBG {
@@ -112,7 +113,7 @@ body {
 header, footer {
     background: linear-gradient(to bottom, rgba(148, 31, 148, 0.8), rgba(54, 3, 54, 0.8));
     padding: 1rem 0;
-    height: 5.5rem;
+    height: 3.5rem;
     width: 100%;
     font-family: 'Cinzel Decorative', serif;
     color: rgba(254, 210, 153, 1);
@@ -121,6 +122,10 @@ header, footer {
 }
 
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
     border-bottom: 1.5px solid rgba(254, 210, 153, 1);
     display: flex;
     justify-content: space-evenly;
@@ -135,8 +140,8 @@ header {
 }
 
 #estrela img {
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     border: 3px solid rgba(254, 210, 153, 1);
     border-radius: 50%;
     transition: transform 0.3s ease;
@@ -424,11 +429,66 @@ a:hover{
 }
 
 /* Responsividade */
+@media (min-width: 1200px) and (max-width: 1600px) {
+    #about {
+        width: 85%;
+        padding: 2.5rem;
+    }
+
+    .baralhos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+
+    .baralho-item {
+        padding: 2rem;
+    }
+
+    .baralho-imagem {
+        width: 280px;
+        height: 280px;
+    }
+
+    #faq {
+        width: 85%;
+        height: auto;
+        padding: 2rem;
+    }
+
+    .valores-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+
+    .valor-item {
+        padding: 2.5rem;
+    }
+
+    #letreiro-header {
+        font-size: 45px;
+    }
+
+    #about img {
+        width: 320px;
+        height: 320px;
+    }
+
+    #opcoes a{
+        font-size: 1.7rem;
+        margin-right: 10px;
+    }
+}
+
 @media (max-width: 1500px) {
     #about {
         width: 90%;
         flex-direction: column;
         padding: 1.5rem;
+    }
+
+    .valores-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
     }
 
     .baralhos-grid {
@@ -451,11 +511,16 @@ a:hover{
         height: auto;
         padding: 1.5rem;
     }
+
+    #opcoes a{
+        font-size: 1.7rem;
+        margin-right: 10px;
+    }
 }
 
 @media (max-width: 992px) {
     #letreiro-header {
-        font-size: 30px;
+        font-size: 50px;
         text-align: center;
     }
 
@@ -479,12 +544,17 @@ a:hover{
         width: 250px;
         height: 250px;
     }
+
+    #opcoes a{
+        font-size: 1.7rem;
+        margin-right: 10px;
+    }
 }
 
 @media (max-width: 768px) {
     header img {
-        height: 50px;
-        width: 50px;
+        height: 40px;
+        width: 40px;
     }
 
     .btn {
@@ -493,69 +563,104 @@ a:hover{
     }
 
     .baralho-imagem {
+        width: 150px;
+        height: 150px;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+
+    #contact p {
+        font-size: 1.2rem;
+    }
+
+    #services ul, #faq ul {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+        width: 95%;
+    }
+
+    #about img {
         width: 180px;
         height: 180px;
     }
 
-    footer p {
-        font-size: 1rem;
-    }
-
-    #contact p {
-        font-size: 1.5rem;
-    }
-
-    #services ul, #faq ul {
+    #about {
+        width: 95%;
         padding: 1rem;
+        margin: 1rem auto;
+    }
+
+    .valores-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0.5rem;
+    }
+
+    .valor-item {
+        padding: 1.5rem;
+    }
+
+    #letreiro-header {
+        font-size: 28px;
+        margin-top: 10px;
+    }
+
+    #opcoes a {
+        font-size: 1.2rem;
+        margin-right: 5px;
+    }
+
+    ul {
+        width: 95%;
+        padding: 15px;
+    }
+
+    ul li {
+        padding: 0.8rem;
         font-size: 1rem;
-    }
-
-    #about img {
-        width: 200px;
-        height: 200px;
-    }
-
-    ul{
-        display: flex;
-        flex-direction: column;
     }
 }
 
 @media (max-width: 576px) {
     body {
         font-size: 0.9rem;
-        scroll-behavior: smooth;
     }
 
     header, footer {
-        padding: 0.5rem 0;
+        padding: 0.3rem 0;
         height: auto;
+        min-height: 60px;
     }
 
     #letreiro-header {
-        font-size: 24px;
+        font-size: 22px;
+        margin-top: 5px;
     }
 
     #about {
-        padding: 1rem;
+        padding: 0.8rem;
+        margin: 0.8rem auto;
     }
 
     #about img {
-        width: 150px;
-        height: 150px;
+        width: 140px;
+        height: 140px;
     }
 
     .baralhos-grid {
-        gap: 10px;
+        gap: 1rem;
+        padding: 0.5rem;
     }
 
     .baralho-imagem {
-        width: 150px;
-        height: 150px;
+        width: 130px;
+        height: 130px;
     }
 
     #contact p {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .btn {
@@ -563,9 +668,26 @@ a:hover{
         padding: 0.3rem 0.6rem;
     }
 
-    ul{
-        display: flex;
-        flex-direction: column;
+    #opcoes a {
+        font-size: 1rem;
+        margin-right: 3px;
+    }
+
+    .icones {
+        height: 25px;
+        width: 25px;
+    }
+
+    .valor-item {
+        padding: 1rem;
+    }
+
+    .preco {
+        font-size: 1.5rem;
+    }
+
+    .obs {
+        font-size: 1.2rem;
     }
 }
 
@@ -577,7 +699,7 @@ a:hover{
 
 .valores-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: 2fr 2fr;
     gap: 2rem;
     margin: 3rem auto;
     max-width: 1200px;
