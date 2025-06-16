@@ -29,7 +29,7 @@ const detalhes = [
     },
     {
       id: "detalhe2",
-      texto: "Não necessariamente. O mais importante é estar aberto às mensagens e reflexões que as cartas proporcionam."
+      texto: "O mais importante é estar aberto às mensagens e reflexões que as cartas proporcionam."
     },
     {
       id: "detalhe3",

@@ -334,6 +334,10 @@ ul li {
     transition: transform 0.3s ease;
 }
 
+#espaco{
+    margin-top: 20px;
+}
+
 
 
 ul li:last-child {
