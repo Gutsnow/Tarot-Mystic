@@ -127,3 +127,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // Listen for scroll events
 window.addEventListener('scroll', handleScrollAnimations);
 
+
+  function toggleChat() {
+    const box = document.getElementById("whatsapp-box");
+    box.style.display = box.style.display === "block" ? "none" : "block";
+  }
+
